@@ -1,6 +1,7 @@
 package com.bid90.edusupply.controller;
 
 
+import com.bid90.edusupply.dto.RegisterUserDTO;
 import com.bid90.edusupply.model.User;
 import com.bid90.edusupply.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,8 +30,8 @@ public class UserController {
     }
 
     @PostMapping("")
-    User createUser(User user){
-        return userService.addUser(user);
+    User addNewUser(RegisterUserDTO user){
+        return userService.addNewUser(user);
     }
 
 

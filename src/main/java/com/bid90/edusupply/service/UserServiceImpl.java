@@ -1,7 +1,9 @@
 package com.bid90.edusupply.service;
 
+import com.bid90.edusupply.dto.RegisterUserDTO;
 import com.bid90.edusupply.model.User;
 import com.bid90.edusupply.repository.UserRepository;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,9 +12,11 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
         private final UserRepository userRepository;
+        private final PasswordEncoder passwordEncoder;
 
-    public UserServiceImpl(UserRepository userRepository) {
+    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -21,7 +25,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User addUser(User user) {
-        return userRepository.save(user);
+    public User addNewUser(RegisterUserDTO user) {
+        var newUser = new User();
+        newUser.setEmail(user.getEmail());
+        newUser.setName(user.getName());
+        newUser.setPassword(passwordEncoder.encode(user.getPassword()));
+        newUser.setEnabled(user.getEnabled());
+        return userRepository.save(newUser);
     }
+
+
 }

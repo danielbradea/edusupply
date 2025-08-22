@@ -2,6 +2,10 @@ package com.bid90.edusupply.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -25,4 +29,14 @@ public class User {
     @JoinColumn(name = "group_id")
     private Group group;
 
+    @Column(name = "enabled" , nullable = false)
+    private boolean enabled = true;
+
+    @CreationTimestamp
+    @Column(name = "createdAt")
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    @Column(name = "updatedAt")
+    private LocalDateTime updatedAt;
 }
