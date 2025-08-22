@@ -1,4 +1,4 @@
-package com.bid90.edusupply.models;
+package com.bid90.edusupply.model;
 
 public enum EquipmentStatus {
     FUNCTIONAL,

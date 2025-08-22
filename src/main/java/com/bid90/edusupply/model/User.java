@@ -1,10 +1,7 @@
-package com.bid90.edusupply.models;
+package com.bid90.edusupply.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Data
 @Entity
@@ -24,6 +21,8 @@ public class User {
     @Column(name = "password" , nullable = false)
     private String password;
 
-    private final List<Role> roles = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "group_id")
+    private Group group;
 
 }
