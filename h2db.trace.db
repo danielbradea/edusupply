@@ -1,0 +1,6 @@
+2025-08-25 13:51:33.332197+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "GROUP_TB" not found (this database is empty); SQL statement:
+select g1_0.id,g1_0.immutable,g1_0.name from group_tb g1_0 where g1_0.name=? [42104-232]
+2025-08-25 13:54:01.993201+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "GROUP_TB" not found (this database is empty); SQL statement:
+select g1_0.id,g1_0.immutable,g1_0.name from group_tb g1_0 where g1_0.name=? [42104-232]
